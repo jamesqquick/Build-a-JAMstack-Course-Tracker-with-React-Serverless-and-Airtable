@@ -1,6 +1,6 @@
 const { table } = require('./airtable');
 const formattedReturn = require('./formattedReturn');
-exports.handler = async (event) => {
+module.exports = async (event) => {
     const { id } = JSON.parse(event.body);
     try {
         const deletedCourse = await table.destroy(id);
