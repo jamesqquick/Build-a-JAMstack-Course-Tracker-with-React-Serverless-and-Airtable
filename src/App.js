@@ -6,8 +6,8 @@ import CourseForm from './components/CourseForm';
 
 function App() {
     return (
-        <div className="container">
-            <h1>Course Tracker</h1>
+        <div className="container mt-5">
+            <h1 class="mb-5 text-center">Course Tracker</h1>
             <CourseForm />
             <CourseList />
         </div>
