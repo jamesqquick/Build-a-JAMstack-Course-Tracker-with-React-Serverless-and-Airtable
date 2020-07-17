@@ -1,5 +1,4 @@
 import React from 'react';
-import Tags from './Tags';
 
 export default function Course({ course, refreshCourses }) {
     const markCoursePurchased = async () => {
