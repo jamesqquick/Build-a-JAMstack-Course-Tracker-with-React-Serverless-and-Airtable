@@ -1,8 +1,7 @@
 import React from 'react';
+import Tags from './Tags';
 
 export default function Course({ course, refreshCourses }) {
-    console.log(course);
-
     const markCoursePurchased = async () => {
         try {
             await fetch('/.netlify/functions/courses', {
@@ -27,20 +26,30 @@ export default function Course({ course, refreshCourses }) {
         }
     };
     return (
-        <div class="list-group-item">
+        <div className="list-group-item">
             <a href={course.link}>
-                <h4 class="list-group-item-heading">{course.name}</h4>
+                <h4 className="list-group-item-heading">{course.name}</h4>
             </a>
-            <p class="list-group-item-text">A bunch of tags!</p>
+            <p className="list-group-item-text">A bunch of tags!</p>
+            <p>
+                Tags:{' '}
+                {course.tags &&
+                    course.tags.map((tag) => (
+                        <span className="badge badge-primary mr-2">{tag}</span>
+                    ))}
+            </p>
             {!course.purchased && (
                 <button
-                    class="btn btn-sm btn-primary"
+                    className="btn btn-sm btn-primary"
                     onClick={markCoursePurchased}
                 >
                     Purchased
                 </button>
             )}
-            <button class="btn btn-sm btn-danger ml-2" onClick={deleteCourse}>
+            <button
+                className="btn btn-sm btn-danger ml-2"
+                onClick={deleteCourse}
+            >
                 Delete
             </button>
         </div>

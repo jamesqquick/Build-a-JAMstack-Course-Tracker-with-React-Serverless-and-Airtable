@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import Tags from './Tags';
 
-export default function CourseForm() {
+export default function CourseForm({ courseAdded }) {
     const [name, setName] = useState('');
     const [link, setLink] = useState('');
+    const [tags, setTags] = useState([]);
 
     const resetForm = () => {
         setName('');
@@ -17,14 +19,17 @@ export default function CourseForm() {
                 body: JSON.stringify({
                     name,
                     link,
+                    tags,
                 }),
             });
             resetForm();
+            courseAdded();
         } catch (err) {
             console.error(err);
         }
         console.log(name, link);
     };
+
     return (
         <div className="card">
             <div className="card-header">Add a New Course</div>
@@ -49,6 +54,10 @@ export default function CourseForm() {
                             className="form-control"
                             onChange={(e) => setLink(e.target.value)}
                         />
+                    </div>
+                    <div className="form-group">
+                        <p>Tags</p>
+                        <Tags tagsUpdated={setTags} />
                     </div>
 
                     <button type="submit" className="btn btn-primary">

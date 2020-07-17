@@ -7,8 +7,8 @@ import CourseForm from './components/CourseForm';
 function App() {
     return (
         <div className="container mt-5">
-            <h1 class="mb-5 text-center">Course Tracker</h1>
-            <CourseForm />
+            <h1 className="mb-5 text-center">Course Tracker</h1>
+            <CourseForm courseAdded={() => {}} />
             <CourseList />
         </div>
     );

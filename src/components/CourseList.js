@@ -21,7 +21,7 @@ export default function CourseList() {
     return (
         <div>
             <h2 className="mt-5 mb-3">Backlog</h2>
-            <div class="list-group">
+            <div className="list-group">
                 {courses
                     .filter((course) => !course.purchased)
                     .map((course) => (
