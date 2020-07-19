@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Tags({ tagsUpdated }) {
+export default function Tags({ tagsUpdated, key }) {
     const tagChoices = ['node', 'javascript', 'react', 'jamstack'];
     const [selectedTags, setSelectedTags] = useState([]);
+
+    useEffect(() => {
+        setSelectedTags([]);
+    }, [key]);
 
     const tagChange = (e) => {
         const value = e.target.value;

@@ -5,10 +5,12 @@ export default function CourseForm({ courseAdded }) {
     const [name, setName] = useState('');
     const [link, setLink] = useState('');
     const [tags, setTags] = useState([]);
+    const [count, setCount] = useState(0);
 
     const resetForm = () => {
         setName('');
         setLink('');
+        setCount(count + 1);
     };
 
     const submitCourse = async (e) => {
@@ -57,7 +59,7 @@ export default function CourseForm({ courseAdded }) {
                     </div>
                     <div className="form-group">
                         <p>Tags</p>
-                        <Tags tagsUpdated={setTags} />
+                        <Tags tagsUpdated={setTags} key={count} />
                     </div>
 
                     <button type="submit" className="btn btn-primary">
