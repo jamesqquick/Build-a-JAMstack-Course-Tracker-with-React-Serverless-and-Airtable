@@ -23,13 +23,13 @@ export default function Tags({ tagsUpdated }) {
     return (
         <>
             {tagChoices.map((choice, index) => (
-                <label className="checkbox-inline mr-2" key={index}>
+                <label className="checkbox-inline mr-3" key={index}>
                     <input
                         type="checkbox"
                         value={choice}
                         onChange={tagChange}
                     />
-                    {choice}
+                    {' ' + choice}
                 </label>
             ))}
         </>
