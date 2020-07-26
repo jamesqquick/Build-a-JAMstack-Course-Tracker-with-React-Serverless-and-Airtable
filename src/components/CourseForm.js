@@ -22,7 +22,33 @@ export default function CourseForm({ courseAdded }) {
             <div className="card-header">Add a New Course</div>
             <div className="card-body">
                 <form className="" onSubmit={submitCourse}>
-                    {/* TODO: Creat the form */}
+                    <div className="form-group">
+                        <label htmlFor="name">Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={name}
+                            className="form-control"
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="link">Link</label>
+                        <input
+                            type="text"
+                            name="link"
+                            value={link}
+                            className="form-control"
+                            onChange={(e) => setLink(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <p>Tags</p>
+                        <Tags tagsUpdated={setTags} key={count} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        Submit
+                    </button>
                 </form>
             </div>
         </div>
