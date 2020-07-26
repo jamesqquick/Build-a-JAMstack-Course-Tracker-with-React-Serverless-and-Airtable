@@ -7,7 +7,11 @@ export default function CourseForm({ courseAdded }) {
     const [tags, setTags] = useState([]);
     const [count, setCount] = useState(0);
 
-    const resetForm = () => {};
+    const resetForm = () => {
+        setName('');
+        setLink('');
+        setCount(count + 1);
+    };
 
     const submitCourse = async (e) => {
         //TODO: Create the course
