@@ -13,7 +13,6 @@ export default function Course({ course, refreshCourses }) {
             <a href={course.link}>
                 <h4 className="list-group-item-heading">{course.name}</h4>
             </a>
-            <p className="list-group-item-text">A bunch of tags!</p>
             <p>
                 Tags:{' '}
                 {course.tags &&
