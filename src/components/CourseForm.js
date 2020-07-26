@@ -14,6 +14,7 @@ export default function CourseForm({ courseAdded }) {
     };
 
     const submitCourse = async (e) => {
+        e.preventDefault();
         //TODO: Create the course
         resetForm();
         courseAdded();
