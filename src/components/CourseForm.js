@@ -7,9 +7,7 @@ export default function CourseForm({ courseAdded }) {
     const [tags, setTags] = useState([]);
     const [count, setCount] = useState(0);
 
-    const resetForm = () => {
-        //TODO:reset the form
-    };
+    const resetForm = () => {};
 
     const submitCourse = async (e) => {
         //TODO: Create the course
