@@ -16,8 +16,10 @@ export default function Course({ course, refreshCourses }) {
             <p>
                 Tags:{' '}
                 {course.tags &&
-                    course.tags.map((tag) => (
-                        <span className="badge badge-primary mr-2">{tag}</span>
+                    course.tags.map((tag, index) => (
+                        <span className="badge badge-primary mr-2" key={index}>
+                            {tag}
+                        </span>
                     ))}
             </p>
             {!course.purchased && (
