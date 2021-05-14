@@ -1,23 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import CourseList from './components/CourseList';
-import CourseForm from './components/CourseForm';
+import ModelList from './components/ModelList';
+import ModelForm from './components/ModelForm';
 
 function App() {
-    const [courses, setCourses] = useState([]);
+    const [models, setModels] = useState([]);
 
-    const loadCourses = async () => {
-        //TODO:load the courses
+    const loadModels = async () => {
+        try {
+            const res = await fetch('/api/models');
+            const models = await res.json();
+            setModels(models);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     useEffect(() => {
-        loadCourses();
+        loadModels();
     }, []);
     return (
         <div className="container mt-5">
-            <h1 className="mb-5 text-center">Course Tracker</h1>
-            <CourseForm courseAdded={loadCourses} />
-            <CourseList courses={courses} refreshCourses={loadCourses} />
+            <h1 className="mb-5 text-center">Model Tracker</h1>
+            <ModelForm modelAdded={loadModels} />
+            <ModelList models={models} refreshModels={loadModels} />
         </div>
     );
 }

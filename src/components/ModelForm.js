@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Tags from './Tags';
 
-export default function CourseForm({ courseAdded }) {
+export default function ModelForm({ modelAdded }) {
     const [name, setName] = useState('');
     const [link, setLink] = useState('');
     const [tags, setTags] = useState([]);
@@ -13,18 +13,29 @@ export default function CourseForm({ courseAdded }) {
         setCount(count + 1);
     };
 
-    const submitCourse = async (e) => {
+    const submitModel = async (e) => {
         e.preventDefault();
-        //TODO: Create the course
+        try {
+            await fetch('api/models', {
+                method : 'POST',
+                body : JSON.stringify({
+                    name,
+                    link,
+                    tags,
+                }),
+            });
         resetForm();
-        courseAdded();
+        modelAdded();
+        } catch (err) {
+            console.error(err);
+        }
     };
 
     return (
         <div className="card">
-            <div className="card-header">Add a New Course</div>
+            <div className="card-header">Add a New Model</div>
             <div className="card-body">
-                <form className="" onSubmit={submitCourse}>
+                <form className="" onSubmit={submitModel}>
                     <div className="form-group">
                         <label htmlFor="name">Name</label>
                         <input
