@@ -1,5 +1,5 @@
-const { table } = require('./airtable');
-const formattedReturn = require('./formattedReturn');
+const { table } = require("./airtable");
+const formattedReturn = require("./formattedReturn");
 module.exports = async (event) => {
-    // TODO: delete course
+  // TODO: delete course
 };
